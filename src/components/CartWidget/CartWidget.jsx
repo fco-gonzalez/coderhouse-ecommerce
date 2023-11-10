@@ -1,9 +1,7 @@
-import cart from '../../assets/cart-shopping.svg'
+import cart from '../../assets/cart-shopping.svg';
 
 const CartWidget = () => {
-  return (
-    <img className='cart-widget' src={cart} alt="cart" />
-  )
-}
+  return <img className='cart-widget' src={cart} alt='cart' />;
+};
 
-export default CartWidget
+export default CartWidget;
