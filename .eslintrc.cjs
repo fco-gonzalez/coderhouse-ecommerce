@@ -35,5 +35,6 @@ module.exports = {
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
     'react/jsx-no-target-blank': 'off',
+    'react/prop-types': 'off',
   },
 };
