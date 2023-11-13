@@ -1,22 +1,19 @@
 const CartWidget = () => {
   return (
-    <>
-      <div className='mx-1'>2</div>
+    <button className='inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded-full text-base mt-4 md:mt-0'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-        stroke-width='1.5'
-        stroke='currentColor'
-        class='w-6 h-6'
+        width='16'
+        height='16'
+        fill='currentColor'
+        className='bi bi-cart '
+        viewBox='0 0 16 16'
       >
-        <path
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          d='M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z'
-        />
-      </svg>
-    </>
+        {' '}
+        <path d='M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z' />{' '}
+      </svg>{' '}
+      4
+    </button>
   );
 };
 
