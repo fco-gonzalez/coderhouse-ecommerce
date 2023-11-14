@@ -19,15 +19,6 @@ const ItemListContainer = ({ greeting }) => {
   return (
     <>
       <h2>{greeting}</h2>
-      {/* <ul>
-        {products.map(product => (
-          <li key={product.id}>
-            <h3>{product.title}</h3>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-          </li>
-        ))}
-      </ul> */}
 
       <section className='text-gray-600 body-font'>
         <div className='container px-5 py-24 mx-auto'>
@@ -49,7 +40,12 @@ const ItemListContainer = ({ greeting }) => {
                     {product.name}
                   </h2>
                   <p className='mt-1'>${product.price}</p>
+                  <p className=''>{product.description}</p>
                 </div>
+
+                <button className='flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-800 rounded'>
+                  Detalle
+                </button>
               </div>
             ))}
           </div>
