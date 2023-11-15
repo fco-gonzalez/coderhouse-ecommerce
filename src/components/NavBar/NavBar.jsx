@@ -12,10 +12,10 @@ function NavBar() {
               Inicio
             </a>
             <a className='mr-5 hover:text-white hover:bg-gray-700 hover:cursor-pointer rounded p-2'>
-              Second Link
+              Gorras
             </a>
             <a className='mr-5 hover:text-white hover:bg-gray-700 hover:cursor-pointer rounded p-2'>
-              Productos
+              Poleras
             </a>
           </nav>
           <CartWidget />
