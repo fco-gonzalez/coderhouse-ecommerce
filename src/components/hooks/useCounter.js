@@ -10,7 +10,6 @@ export const useCounter = (min, max) => {
   };
 
   const decrement = () => {
-    console.log('desc');
     if (counter > min) {
       setcounter(counter - 1);
     }
