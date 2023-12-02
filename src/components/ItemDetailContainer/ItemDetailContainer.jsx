@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { mFetch } from '../helpers/mFetch';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ItemCounter } from '../ItemCounter/ItemCounter';
+import { CartContext } from '../../contexts/CartContext';
 
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
@@ -10,6 +11,15 @@ export const ItemDetailContainer = () => {
   const { itemId } = useParams();
 
   const navigate = useNavigate();
+
+  const { addProduct, cartList } = useContext(CartContext);
+
+  const onAdd = cantidad => {
+    addProduct(product, cantidad);
+    //navigate('/cart');
+  };
+
+  console.log(cartList);
 
   useEffect(() => {
     mFetch(itemId)
@@ -79,7 +89,7 @@ export const ItemDetailContainer = () => {
                 </span>
               </div>
               <div className='flex mb-4'>
-                <ItemCounter stock={product.stock} />
+                <ItemCounter onAdd={onAdd} initial={1} stock={product.stock} />
               </div>
               <div className='flex'>
                 <button

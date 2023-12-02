@@ -28,7 +28,7 @@ export const ItemCounter = ({ initial = 1, stock = 5, onAdd }) => {
         type='button'
         value='Agregar al carrito'
         onClick={() => {
-          console.log('Agregar al carrito');
+          onAdd(counter);
         }}
       />
     </div>
