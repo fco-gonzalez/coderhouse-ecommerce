@@ -89,11 +89,11 @@ export const ItemDetailContainer = () => {
                 </span>
               </div>
               <div className='flex mb-4'>
-                <ItemCounter onAdd={onAdd} initial={1} stock={product.stock} />
+                <ItemCounter onAdd={onAdd} stock={product.stock} />
               </div>
               <div className='flex'>
                 <button
-                  className='mx-2 w-full text-white bg-red-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-800 rounded'
+                  className='mx-2  text-white bg-red-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-800 rounded'
                   onClick={() => navigate(-1)}
                 >
                   Volver
