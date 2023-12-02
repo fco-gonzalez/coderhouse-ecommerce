@@ -12,16 +12,6 @@ function CartContainer() {
 
   return (
     <>
-      <h1>CartContainer...</h1>
-      <ul>
-        {cartList.length === 0 && <li>No hay productos en el carrito</li>}
-        {cartList.map((product, index) => (
-          <li key={index}>
-            {product.product.name} - {product.quantity}
-          </li>
-        ))}
-      </ul>
-
       <section className='text-gray-600 body-font'>
         <div className='container px-5 py-24 mx-auto'>
           <div className='flex flex-col text-center w-full mb-20'>
@@ -73,10 +63,10 @@ function CartContainer() {
                         onClick={() =>
                           eliminarProductoConfirmar(product.product.id)
                         }
-                        class='relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none'
+                        className='relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none'
                         type='button'
                       >
-                        <span class='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
+                        <span className='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
                           X
                         </span>
                       </button>
