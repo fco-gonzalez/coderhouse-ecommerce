@@ -19,8 +19,6 @@ export const ItemDetailContainer = () => {
     //navigate('/cart');
   };
 
-  console.log(cartList);
-
   useEffect(() => {
     mFetch(itemId)
       .then(res => {
@@ -28,8 +26,20 @@ export const ItemDetailContainer = () => {
       })
       .catch(err => {
         console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, [itemId]);
+
+  if (loading) {
+    return (
+      <div className='absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 '>
+        <div className='border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-64 w-64'></div>
+        <div className='text-center'>Cargando...</div>
+      </div>
+    );
+  }
 
   return (
     <>

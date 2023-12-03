@@ -19,9 +19,7 @@ function CartContainer() {
               Carrito
             </h1>
             <p className='lg:w-2/3 mx-auto leading-relaxed text-base'>
-              Banh mi cornhole echo park skateboard authentic crucifix neutra
-              tilde lyft biodiesel artisan direct trade mumblecore 3 wolf moon
-              twee
+              Revisa los productos que agregaste al carrito
             </p>
           </div>
           <div className='lg:w-2/3 w-full mx-auto overflow-auto'>

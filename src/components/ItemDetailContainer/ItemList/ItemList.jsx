@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import { Item } from '../../Item/Item';
 
-export const ItemList = ({ products }) => {
+export const ItemList = memo(({ products }) => {
   return (
     <>
       <section className='text-gray-600 body-font'>
@@ -14,4 +15,4 @@ export const ItemList = ({ products }) => {
       </section>
     </>
   );
-};
+});
