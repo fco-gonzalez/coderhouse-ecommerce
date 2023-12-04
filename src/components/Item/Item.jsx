@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 export const Item = memo(({ product }) => {
-  console.log(product);
   return (
     <div
       key={product.id}

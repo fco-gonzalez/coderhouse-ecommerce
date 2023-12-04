@@ -3,6 +3,7 @@ import { mFetch } from '../helpers/mFetch';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ItemCounter } from '../ItemCounter/ItemCounter';
 import { CartContext } from '../../contexts/CartContext';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
@@ -20,16 +21,20 @@ export const ItemDetailContainer = () => {
   };
 
   useEffect(() => {
-    mFetch(itemId)
-      .then(res => {
-        setProduct(res.filter(product => product.id === itemId)[0]);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    mFetch(itemId).then(res => {
+      const dbFirestore = getFirestore();
+      const queryDoc = doc(dbFirestore, 'products', itemId);
+      getDoc(queryDoc)
+        .then(res => {
+          setProduct({ ...res.data(), id: res.id });
+        })
+        .catch(err => {
+          console.log(err);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    });
   }, [itemId]);
 
   if (loading) {

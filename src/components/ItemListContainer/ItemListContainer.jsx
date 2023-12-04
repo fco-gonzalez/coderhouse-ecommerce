@@ -67,12 +67,14 @@ const ItemListContainer = ({ greeting }) => {
   useEffect(() => {
     const dbFirestore = getFirestore();
     const queryCollection = collection(dbFirestore, 'products');
-    //como filtrar solo si categoryId existe
+    // Como filtrar solo si categoryId existe
     const queryFilter = categoryId
       ? query(queryCollection, where('category', '==', categoryId))
       : queryCollection;
 
-    getDocs(queryFilter)
+    console.log('queryFilter');
+
+    getDocs(queryFilter) // Cambiado de queryCollection a queryFilter
       .then(res => {
         setProducts(res.docs.map(doc => ({ ...doc.data(), id: doc.id })));
       })
@@ -82,8 +84,7 @@ const ItemListContainer = ({ greeting }) => {
       .finally(() => {
         setLoading(false);
       });
-  }),
-    [categoryId];
+  }, [categoryId]);
 
   return (
     <>
