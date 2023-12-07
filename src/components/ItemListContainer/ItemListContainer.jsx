@@ -19,51 +19,6 @@ const ItemListContainer = ({ greeting }) => {
 
   const [loading, setLoading] = useState(true);
 
-  //console.log(categoryId);
-
-  // useEffect(() => {
-  //   if (categoryId) {
-  //     mFetch()
-  //       .then(res => {
-  //         setProducts(res.filter(product => product.category === categoryId));
-  //       })
-  //       .catch(err => {
-  //         console.log(err);
-  //       })
-  //       .finally(() => {
-  //         setLoading(false);
-  //       });
-  //   } else {
-  //     mFetch()
-  //       .then(res => {
-  //         setProducts(res);
-  //       })
-  //       .catch(err => {
-  //         console.log(err);
-  //       })
-  //       .finally(() => {
-  //         setLoading(false);
-  //       });
-  //   }
-  // }, [categoryId]);
-
-  //recupera el documento con el id I2R8qaBNh3QYFdDPCgkD
-  // useEffect(() => {
-  //   const dbFirestore = getFirestore();
-  //   const queryDoc = doc(dbFirestore, 'products', 'I2R8qaBNh3QYFdDPCgkD');
-  //   getDoc(queryDoc)
-  //     .then(res => {
-  //       console.log(res.data());
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }),
-  //   [];
-
   useEffect(() => {
     const dbFirestore = getFirestore();
     const queryCollection = collection(dbFirestore, 'products');
@@ -71,8 +26,6 @@ const ItemListContainer = ({ greeting }) => {
     const queryFilter = categoryId
       ? query(queryCollection, where('category', '==', categoryId))
       : queryCollection;
-
-    console.log('queryFilter');
 
     getDocs(queryFilter) // Cambiado de queryCollection a queryFilter
       .then(res => {

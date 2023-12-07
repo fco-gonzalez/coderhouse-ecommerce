@@ -113,6 +113,17 @@ export const ItemDetailContainer = () => {
                 >
                   Volver
                 </button>
+
+                {/* boton si existen productos en el carrito */}
+
+                {cartList.length > 0 && (
+                  <button
+                    className='w-1/2 selection:mx-2 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-800 rounded'
+                    onClick={() => navigate('/cart')}
+                  >
+                    Ir al carrito
+                  </button>
+                )}
               </div>
             </div>
           </div>
