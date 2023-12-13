@@ -28,22 +28,22 @@ export const CartContextProvider = ({ children }) => {
     setCartList([...cartList, newProduct]);
   };
 
-  const vaciarCarrito = () => {
+  const emptyCart = () => {
     setCartList([]);
   };
 
-  const cantidadDeProductos = () => {
+  const quantityOfProducts = () => {
     return cartList.reduce((acc, product) => acc + product.quantity, 0);
   };
 
-  const precioTotal = () => {
+  const totalPrice = () => {
     return cartList.reduce(
       (acc, product) => acc + product.quantity * product.product.price,
       0,
     );
   };
 
-  const eliminarProducto = id => {
+  const deleteProduct = id => {
     setCartList(cartList.filter(product => product.product.id !== id));
   };
 
@@ -52,10 +52,10 @@ export const CartContextProvider = ({ children }) => {
       value={{
         cartList,
         addProduct,
-        vaciarCarrito,
-        cantidadDeProductos,
-        precioTotal,
-        eliminarProducto,
+        emptyCart,
+        quantityOfProducts,
+        totalPrice,
+        deleteProduct,
       }}
     >
       {children}

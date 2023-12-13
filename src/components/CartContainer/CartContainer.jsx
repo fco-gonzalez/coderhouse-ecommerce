@@ -7,7 +7,7 @@ import { Error } from '../Error/Error';
 import { Link } from 'react-router-dom';
 
 function CartContainer() {
-  const { cartList, eliminarProducto, precioTotal, vaciarCarrito } =
+  const { cartList, deleteProduct, totalPrice, emptyCart } =
     useContext(CartContext);
 
   const [formData, setFormData] = useState({
@@ -71,7 +71,7 @@ function CartContainer() {
       quantity: product.quantity,
       image: product.product.image,
     }));
-    order.total = precioTotal(); // Corregir el nombre de la función
+    order.total = totalPrice(); // Corregir el nombre de la función
 
     // console.log(order);
 
@@ -91,7 +91,7 @@ function CartContainer() {
         });
         setError(false);
         setMsg('');
-        vaciarCarrito();
+        emptyCart();
       });
   };
 

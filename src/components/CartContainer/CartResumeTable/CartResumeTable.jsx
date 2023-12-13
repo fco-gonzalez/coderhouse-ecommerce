@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import { CartContext } from '../../../contexts/CartContext';
 
 function CartList() {
-  const { cartList, eliminarProducto, precioTotal } = useContext(CartContext);
+  const { cartList, deleteProduct, totalPrice } = useContext(CartContext);
 
-  const eliminarProductoConfirmar = id => {
+  const deleteProductConfirmar = id => {
     if (window.confirm('¿Estás seguro que deseas eliminar el producto?')) {
-      eliminarProducto(id);
+      deleteProduct(id);
     }
   };
 
@@ -46,7 +46,7 @@ function CartList() {
             </td>
             <td className='w-10 text-center'>
               <button
-                onClick={() => eliminarProductoConfirmar(product.product.id)}
+                onClick={() => deleteProductConfirmar(product.product.id)}
                 className='relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none'
                 type='button'
               >
@@ -67,7 +67,7 @@ function CartList() {
             Total
           </td>
           <td className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl'>
-            ${precioTotal()}
+            ${totalPrice()}
           </td>
         </tr>
       </tfoot>
