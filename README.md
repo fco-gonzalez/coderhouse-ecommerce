@@ -1,8 +1,51 @@
-# React + Vite
+# Proyecto final curso React JS Coderhouse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Comisión: 49870
+- Profesor: Federico Osandon
 
-Currently, two official plugins are available:
+## Detalle
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto fue desarrollado como parte del curso de ReactJS. Se trata de un sistema de eCommerce que utiliza React para construir la interfaz de usuario dinámica y atractiva.
+
+## Funcionalidades
+
+- **Catálogo de Productos:** Explora una amplia variedad de productos disponibles en el eCommerce.
+- **Carrito de Compras:** Agrega productos al carrito y realiza un seguimiento de tus selecciones.
+- **Proceso de Pago:** Completa tu compra de manera segura y fácil.
+
+## Instalación
+
+Para ejecutar el proyecto localmente, sigue estos pasos:
+
+1. Clona este repositorio.
+2. Instala las dependencias con `npm install`.
+3. Inicia la aplicación con `npm start`.
+
+## Técnologia utilizada
+
+- React JS 18.2.0
+- Tailwind 3.3.5
+- Firebase/FireStore 10.7.0
+- Vite 4.4.5
+- Eslint 8.52.0
+- Prettier 3.0.3
+
+## Desarrollador
+
+**Nombre:** Francisco González Riquelme  
+**Correo Electrónico:** tu@email.com  
+**Sitio Web:** [DEMO]()
+
+## Algunas vistas
+
+| Vista principal                                       |
+| ----------------------------------------------------- |
+| ![Descripción de la Imagen](/public/Screenshot_1.png) |
+
+| Detalle del producto                                  |
+| ----------------------------------------------------- |
+| ![Descripción de la Imagen](/public/Screenshot_2.png) |
+
+| Carrito                                               |
+| ----------------------------------------------------- |
+| ![Descripción de la Imagen](/public/Screenshot_3.png) |

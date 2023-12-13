@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
-import { mFetch } from '../helpers/mFetch';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ItemCounter } from '../ItemCounter/ItemCounter';
+import { CartContext } from '../../contexts/CartContext';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
@@ -11,22 +12,41 @@ export const ItemDetailContainer = () => {
 
   const navigate = useNavigate();
 
+  const { addProduct, cartList } = useContext(CartContext);
+
+  const onAdd = cantidad => {
+    addProduct(product, cantidad);
+  };
+
   useEffect(() => {
-    mFetch(itemId)
+    const dbFirestore = getFirestore();
+    const queryDoc = doc(dbFirestore, 'products', itemId);
+    getDoc(queryDoc)
       .then(res => {
-        setProduct(res.filter(product => product.id === itemId)[0]);
+        setProduct({ ...res.data(), id: res.id });
       })
       .catch(err => {
         console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, [itemId]);
+
+  if (loading) {
+    return (
+      <div className='absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 '>
+        <div className='border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-64 w-64'></div>
+        <div className='text-center'>Cargando...</div>
+      </div>
+    );
+  }
 
   return (
     <>
       <section className='text-gray-600 body-font overflow-hidden'>
         <div className='container px-5 py-24 mx-auto'>
           <div className='lg:w-4/5 mx-auto flex flex-wrap'>
-            {/* <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400"> */}
             <img
               alt='ecommerce'
               className='lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded'
@@ -79,15 +99,24 @@ export const ItemDetailContainer = () => {
                 </span>
               </div>
               <div className='flex mb-4'>
-                <ItemCounter stock={product.stock} />
+                <ItemCounter onAdd={onAdd} stock={product.stock} />
               </div>
               <div className='flex'>
                 <button
-                  className='mx-2 w-full text-white bg-red-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-800 rounded'
+                  className='mx-2  text-white bg-red-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-800 rounded'
                   onClick={() => navigate(-1)}
                 >
                   Volver
                 </button>
+
+                {cartList.length > 0 && (
+                  <button
+                    className='w-1/2 selection:mx-2 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-800 rounded'
+                    onClick={() => navigate('/cart')}
+                  >
+                    Ir al carrito
+                  </button>
+                )}
               </div>
             </div>
           </div>

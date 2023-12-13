@@ -1,12 +1,7 @@
 import { useCounter } from '../hooks/useCounter';
 
 export const ItemCounter = ({ initial = 1, stock = 5, onAdd }) => {
-  // TODO: Implementar el contador de items
   const { counter, increment, decrement } = useCounter(initial, stock);
-
-  //   const addToCart = () => {
-  //     onAdd(counter);
-  //   };
 
   return (
     <div className='m-2'>
@@ -28,7 +23,7 @@ export const ItemCounter = ({ initial = 1, stock = 5, onAdd }) => {
         type='button'
         value='Agregar al carrito'
         onClick={() => {
-          console.log('Agregar al carrito');
+          onAdd(counter);
         }}
       />
     </div>
