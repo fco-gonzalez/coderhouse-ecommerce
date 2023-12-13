@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-import { mFetch } from '../helpers/mFetch';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ItemCounter } from '../ItemCounter/ItemCounter';
 import { CartContext } from '../../contexts/CartContext';
@@ -20,20 +19,18 @@ export const ItemDetailContainer = () => {
   };
 
   useEffect(() => {
-    mFetch(itemId).then(res => {
-      const dbFirestore = getFirestore();
-      const queryDoc = doc(dbFirestore, 'products', itemId);
-      getDoc(queryDoc)
-        .then(res => {
-          setProduct({ ...res.data(), id: res.id });
-        })
-        .catch(err => {
-          console.log(err);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    });
+    const dbFirestore = getFirestore();
+    const queryDoc = doc(dbFirestore, 'products', itemId);
+    getDoc(queryDoc)
+      .then(res => {
+        setProduct({ ...res.data(), id: res.id });
+      })
+      .catch(err => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [itemId]);
 
   if (loading) {
